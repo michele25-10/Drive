@@ -4,13 +4,12 @@ import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAm8VOB-JJfmoSENvqUAB-w5QEcF4r2XSE",
-  authDomain: "clonedrive-c135c.firebaseapp.com",
-  projectId: "clonedrive-c135c",
-  storageBucket: "clonedrive-c135c.appspot.com",
-  messagingSenderId: "56724259518",
-  appId: "1:56724259518:web:f38b42b147deada40014ef",
-  measurementId: "G-QVS6SDS885",
+  apiKey: "AIzaSyCYm787AXpoKXOdG-CrvPvr9jyqGLdrU6g",
+  authDomain: "drive-94f88.firebaseapp.com",
+  projectId: "drive-94f88",
+  storageBucket: "drive-94f88.appspot.com",
+  messagingSenderId: "357649746576",
+  appId: "1:357649746576:web:730432b19cdcf2389a6615",
 };
 
 // Initialize Firebase
