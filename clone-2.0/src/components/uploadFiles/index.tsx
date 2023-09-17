@@ -2,13 +2,14 @@ import React, { ChangeEvent, useState } from "react";
 import styles from "./uploadFiles.module.scss";
 import Button from "../common/Button/Button";
 import { fileUpload } from "../../API/FileUpload";
+import CommonProgress from "../common/Progress";
 
 export default function UploadFiles() {
   const [isFileVisible, setFileVisible] = useState(false);
-  // const [file, setFile] = useState({});
+  const [progress, setProgress] = useState(0);
   const uploadFiles = async (event: ChangeEvent<HTMLInputElement>) => {
     let file = event.target.files?.[0];
-    fileUpload({ file });
+    fileUpload(file, setProgress);
   };
   return (
     <div className={styles.uploadMain}>
@@ -27,6 +28,11 @@ export default function UploadFiles() {
         <></>
       )}
       <Button title="Aggiungi cartella" btnClass="btn-primary btn-outline" />
+      {progress === 0 || progress === 100 ? (
+        <></>
+      ) : (
+        <CommonProgress progress={progress} />
+      )}
     </div>
   );
 }

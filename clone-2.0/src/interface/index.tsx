@@ -9,6 +9,6 @@ interface GithubAuth {
   clientSecret: string;
 }
 
-interface fileUpload {
-  file: any;
+interface Progress {
+  progress: number;
 }
