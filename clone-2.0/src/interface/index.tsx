@@ -12,3 +12,7 @@ interface GithubAuth {
 interface Progress {
   progress: number;
 }
+
+interface ArrayType {
+  map: Function;
+}
