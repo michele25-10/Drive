@@ -1,14 +1,14 @@
 import React, { ChangeEvent, useState } from "react";
 import styles from "./uploadFiles.module.scss";
 import Button from "../common/Button/Button";
-import { fileUpload } from "@/API/FileUpload";
+import { fileUpload } from "../../API/FileUpload";
 
 export default function UploadFiles() {
   const [isFileVisible, setFileVisible] = useState(false);
-  const [file, setFile] = useState({});
+  // const [file, setFile] = useState({});
   const uploadFiles = async (event: ChangeEvent<HTMLInputElement>) => {
     let file = event.target.files?.[0];
-    fileUpload(file);
+    fileUpload({ file });
   };
   return (
     <div className={styles.uploadMain}>

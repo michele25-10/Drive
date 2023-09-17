@@ -1,7 +1,9 @@
-import { storage, app, database } from "@/firebaseConfig";
+import React from "react";
+import { storage } from "@/firebaseConfig";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import { addFiles } from "./FireStore";
 
-export const fileUpload = (file: any) => {
+const fileUpload = ({ file }: fileUpload) => {
   const storageRef = ref(storage, `files/${file.name}`);
   const uploadTask = uploadBytesResumable(storageRef, file);
   uploadTask.on(
@@ -17,8 +19,10 @@ export const fileUpload = (file: any) => {
     },
     () => {
       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-        console.log(downloadURL);
+        addFiles(downloadURL);
       });
     },
   );
 };
+
+export { fileUpload };
