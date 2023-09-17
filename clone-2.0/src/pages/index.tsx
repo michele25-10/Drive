@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import HomeComponent from "@/components/Home";
 
 export default function Home() {
