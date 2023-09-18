@@ -23,12 +23,16 @@ export default function UploadFiles() {
       fileList: [],
     };
     addFolder(payload);
+    setFolderName("");
   };
 
   return (
     <div className={styles.uploadMain}>
       <Button
-        onClick={() => setFileVisible(!isFileVisible)}
+        onClick={() => {
+          setFolderVisible(false);
+          setFileVisible(!isFileVisible);
+        }}
         title="Aggiungi file"
         btnClass="btn-info"
       />
@@ -44,7 +48,10 @@ export default function UploadFiles() {
       <Button
         title="Aggiungi cartella"
         btnClass="btn-primary btn-outline"
-        onClick={() => setFolderVisible(!isFolderVisible)}
+        onClick={() => {
+          setFileVisible(false);
+          setFolderVisible(!isFolderVisible);
+        }}
       />
       {isFolderVisible ? (
         <>
