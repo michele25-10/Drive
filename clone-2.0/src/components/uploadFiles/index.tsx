@@ -5,7 +5,7 @@ import { fileUpload } from "../../API/FileUpload";
 import CommonProgress from "../common/Progress";
 import { addFolder } from "@/API/FireStore";
 
-export default function UploadFiles() {
+export default function UploadFiles({ parentId }) {
   const [isFileVisible, setFileVisible] = useState(false);
   const [isFolderVisible, setFolderVisible] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -15,12 +15,13 @@ export default function UploadFiles() {
     let file = event.target.files?.[0];
     fileUpload(file, setProgress);
   };
-
+  console.log(folderName);
   const uploadFolder = () => {
     let payload = {
       folderName: folderName,
       isFolder: true,
       fileList: [],
+      parentId: parentId || "",
     };
     addFolder(payload);
     setFolderName("");

@@ -22,6 +22,7 @@ export const addFolder = (payload: {
   folderName: string;
   isFolder: boolean;
   fileList: object;
+  parentId: string;
 }) => {
   try {
     //Dove effettivamente viene fatta la post dei nostri dati insieme al nome della raccolta e ai riferimenti al database
@@ -29,6 +30,7 @@ export const addFolder = (payload: {
       folderName: payload.folderName,
       isFolder: payload.isFolder,
       fileList: payload.fileList,
+      parentId: payload.parentId,
     });
   } catch (err) {
     console.log(err);
