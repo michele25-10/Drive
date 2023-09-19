@@ -3,9 +3,11 @@ import styles from "./ShowFiles.module.scss";
 import { fetchFiles } from "@/hooks/fetchFiles";
 import { AiFillFile, AiFillFolder } from "react-icons/ai";
 import { useRouter } from "next/router";
-
+import { useFetchSession } from "@/hooks/useSession";
 export default function ShowFiles({ parentId }: FolderStructure) {
-  let { fileList } = fetchFiles(parentId);
+  let { session } = useFetchSession();
+  let { fileList } = fetchFiles(parentId, session?.user.email as string);
+
   const router = useRouter();
   const openFile = (fileLink: string) => {
     window.open(fileLink);
