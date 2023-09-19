@@ -13,7 +13,7 @@ export default function UploadFiles({ parentId }) {
 
   const uploadFiles = async (event: ChangeEvent<HTMLInputElement>) => {
     let file = event.target.files?.[0];
-    fileUpload(file, setProgress);
+    fileUpload(file, setProgress, parentId);
   };
   console.log(folderName);
   const uploadFolder = () => {
