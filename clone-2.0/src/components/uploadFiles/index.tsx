@@ -15,7 +15,7 @@ export default function UploadFiles({ parentId }: FolderStructure) {
 
   const uploadFiles = async (event: ChangeEvent<HTMLInputElement>) => {
     let file = event.target.files?.[0];
-    fileUpload(file, setProgress, parentId);
+    fileUpload(file, setProgress, parentId, session?.user.email as string);
   };
   const uploadFolder = () => {
     let payload = {

@@ -9,6 +9,7 @@ export const addFiles = (
   imageLink: string,
   imageName: string,
   parentId: string,
+  userEmail: string,
 ) => {
   try {
     //Dove effettivamente viene fatta la post dei nostri dati insieme al nome della raccolta e ai riferimenti al database
@@ -17,6 +18,7 @@ export const addFiles = (
       imageName: imageName,
       isFolder: false,
       parentId: parentId,
+      userEmail: userEmail,
     });
   } catch (err) {
     console.log(err);
