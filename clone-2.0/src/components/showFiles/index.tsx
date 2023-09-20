@@ -4,6 +4,8 @@ import { fetchFiles } from "@/hooks/fetchFiles";
 import { AiFillFile, AiFillFolder } from "react-icons/ai";
 import { useRouter } from "next/router";
 import { useFetchSession } from "@/hooks/useSession";
+import ThreeOptionIcon from "@/components/common/ThreeOptionIcon/threeOptionIcon";
+
 export default function ShowFiles({ parentId }: FolderStructure) {
   let { session } = useFetchSession();
   let { fileList } = fetchFiles(parentId, session?.user.email as string);
@@ -39,11 +41,14 @@ export default function ShowFiles({ parentId }: FolderStructure) {
                   <div
                     key={file.id}
                     className={`${styles.files} bg-green-500`}
-                    onClick={() => openFile(file.imageLink)}
+                    //onClick={() => openFile(file.imageLink)}
                   >
                     <img className={styles.imageLink} src={file.imageLink} />
                     {/*<AiFillFile size={80} />*/}
                     <p>{file.imageName}</p>
+                    <div className={styles.threeOptionIcon}>
+                      <ThreeOptionIcon />
+                    </div>
                   </div>
                 </>
               )}
